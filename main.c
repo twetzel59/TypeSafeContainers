@@ -26,18 +26,37 @@ int main()
     printf("l.first->data: %d\n", l.first->data);
     printf("l.first->next: %p\n", (void *)l.first->next);
 
-    /*
-    SList_float f;
-    SLIST_INIT(float, f);
-    printf("f.first: %p\n", (void *) f.first);
-    */
+    SLIST_ADD(int, l, 11, success);
+    assert(success);
 
-    /*
-    SList_int i;
-    SList_float f1;
-    //SList_float f2 = i; //error
-    SList_float f2 = f1;
-    */
+    SLIST_ADD(int, l, 12, success);
+    assert(success);
+
+    SLIST_ADD(int, l, 13, success);
+    assert(success);
+
+    SLIST_INSERT(int, l, l.first->next, 10, success);
+    assert(success);
+
+    SLIST_INSERT(int, l, l.first, 8, success);
+    assert(success);
+
+    SLIST_INSERT(int, l, l.first, 7, success);
+    assert(success);
+
+    SLIST_INSERT(int, l, l.first, 6, success);
+    assert(success);
+
+    SLIST_ADD(int, l, 14, success);
+    assert(success);
+
+    puts("listing:");
+
+    for(SList_int_Node *i = l.first; i != NULL; i = i->next) {
+        printf("node (%p): %d\n", (void *)i, i->data);
+    }
+
+    SLIST_FREE(int, l);
 
     return 0;
 }
