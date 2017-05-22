@@ -7,7 +7,7 @@ TSC for C is a collection of generic containers for C that actually are type saf
 Arrays, linked lists, hash tables...
 
 ## Example:
-
+```c
 	#include <assert.h>
 	#include <stdio.h>
 	#include "slist.h"
@@ -17,8 +17,9 @@ Arrays, linked lists, hash tables...
 	#define SLIST_INT
 	#endif
 
-	int main() {
-		SList_int l;
+	int main()
+	{
+	    SList_int l;
         SLIST_INIT(int, l);
         bool success = false;
         SLIST_ADD(int, l, 9, success);
@@ -62,3 +63,4 @@ Arrays, linked lists, hash tables...
 
 	    return 0;
 	}
+```	
